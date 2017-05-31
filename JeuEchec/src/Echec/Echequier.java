@@ -44,10 +44,11 @@ public class Echequier {
 	}
 	
 	public void afficher_grille(){
-		
+		int k =1;
 		System.out.println("   A   B   C   D   E   F   G   H");
-		System.out.println(" ---------------------------------");		
+		System.out.println("  ---------------------------------");		
 		for(int i = 0; i < 8; i++ ){
+			System.out.print(k);
 			for(int j = 0; j < 8 ; j++){
 				if(grille[i][j].getPiece() != null )
 					System.out.print(" | " + (this.grille[i][j].getPiece().getNom()));
@@ -57,9 +58,8 @@ public class Echequier {
 			
 			System.out.println( " | ");
 			System.out.println("  --------------------------------");
+		k++;
 		}
-		
-		System.out.println("    A   B   C   D   E   F   G   H");
 		
 	}
 	
