@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Deplacement {
+public class Deplacement implements Serializable{
 	protected int deplX;
 	protected int deplY;
 	protected Position arrive;

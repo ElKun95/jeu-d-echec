@@ -1,4 +1,3 @@
-package Echec;
 import java.util.Scanner;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -14,7 +13,7 @@ public class Jouer {
 		Position arriver;
 		Scanner input = new Scanner(System.in);
 		
-		Echequier g1 = new Echequier(); 
+		Echiquier g1 = new Echiquier(); 
 		g1.intialise();
 		g1.afficher_grille();
 		

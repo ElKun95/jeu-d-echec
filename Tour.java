@@ -1,8 +1,10 @@
 
+import java.io.Serializable;
+
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("5c773756-6660-4021-ba6d-00a88cbeb2c1")
-public class Tour extends Piece {
+public class Tour extends Piece implements Serializable{
 	
 	public Tour(String couleur){
 		super(couleur);

@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Position {
+public class Position implements Serializable{
 	protected int ligne;
 	protected int colonne;
 	

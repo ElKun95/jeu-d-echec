@@ -1,7 +1,9 @@
+import java.io.Serializable;
+
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("89a1b4e1-57eb-45cc-95db-1992e9b85af4")
-public class Cavalier extends Piece {
+public class Cavalier extends Piece implements Serializable{
 	
 	public Cavalier(String couleur){
 		super(couleur);

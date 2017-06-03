@@ -1,8 +1,10 @@
 
+import java.io.Serializable;
+
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("f053f634-0d8b-4a1f-b597-aaea20c94652")
-public class Pion extends Piece {
+public class Pion extends Piece implements Serializable{
 	protected int nbDepl;
 	
 	public Pion(String couleur){

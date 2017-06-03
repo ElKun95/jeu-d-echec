@@ -1,8 +1,10 @@
 
+import java.io.Serializable;
+
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("db6f91da-7853-4c60-b98b-4c1974d00baa")
-public class Roi extends Piece {
+public class Roi extends Piece implements Serializable{
 
 	public Roi(String couleur){
 		super(couleur);
