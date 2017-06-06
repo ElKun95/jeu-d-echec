@@ -122,9 +122,9 @@ public class Partie{
 			BufferedReader br = new BufferedReader(fr);
 			String s = br.readLine();
 		
-			while(s != null && !(s.equals("Blanc") || s.equals("Noir"))){
+			while(s != null && !(s.equals("blanc") || s.equals("noir"))){
 			
-				int ligneDepart = Integer.parseInt(s.substring(0, 1));
+				int ligneDepart = Integer.parseInt(s.substring(0, 1)); // Convertir une chaine de caractére en String
 				int colonneDepart = Integer.parseInt(s.substring(1,2));
 				int ligneArrivee = Integer.parseInt(s.substring(3, 4));
 				int colonneArrivee = Integer.parseInt(s.substring(4,5));
