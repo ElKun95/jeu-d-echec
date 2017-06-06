@@ -9,7 +9,7 @@ public class Partie{
 	private Joueur joueur[] = new Joueur[2];
 	Deplacement depl;
 	private boolean fini_jeu;
-	private Joueur CurrentPlayer;
+	private Joueur JoueurActuel;
 	
 	
 	public Partie(){
@@ -30,7 +30,7 @@ public class Partie{
     	}
     	
 		fini_jeu = false; // le jeu commence donc on met false
-		CurrentPlayer = joueur[0]; // le premier joueur est le blanc
+		JoueurActuel = joueur[0]; // le premier joueur est le blanc
 	}
 	
 	public void jeu(){
@@ -56,14 +56,14 @@ public class Partie{
 
 			Deplacement depl = new Deplacement(depart,arriver);
 			
-			if(g1.getCase(depl.getDepart().getLigne(), depl.getDepart().getColonne()).getPiece().getCouleur().equals(CurrentPlayer.getCouleur())){
+			if(g1.getCase(depl.getDepart().getLigne(), depl.getDepart().getColonne()).getPiece().getCouleur().equals(JoueurActuel.getCouleur())){
 				
 				if(g1.deplacement(depl)){
 					// change de joueur courrant
-					if(CurrentPlayer == joueur[0])
-						CurrentPlayer = joueur[1];
+					if(JoueurActuel == joueur[0])
+						JoueurActuel = joueur[1];
 					else
-						CurrentPlayer = joueur[0];
+						JoueurActuel = joueur[0];
 				}
 				else
 					System.out.println("Deplacement faux");
@@ -102,7 +102,7 @@ public class Partie{
 	    	}
     		
     		
-	    	fw.write(CurrentPlayer.getCouleur());  
+	    	fw.write(JoueurActuel.getCouleur());  
 	    	
     		fw.close(); 
 	    	return true;
@@ -135,9 +135,9 @@ public class Partie{
 			}
 			
 			if(s.equals("blanc"))
-				CurrentPlayer = joueur[0];
+				JoueurActuel = joueur[0];
 			else if(s.equals("noir"))
-				CurrentPlayer = joueur[1];
+				JoueurActuel = joueur[1];
 			
 			br.close();
 			fr.close();
