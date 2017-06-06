@@ -1,8 +1,9 @@
 package Echec;
+
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("d8847c5e-41a3-4189-8f64-e0144452e752")
-public class Echequier {
+public class Echequier{
 	private Case grille[][];
 	private String couleur ;
 	public Echequier(){
@@ -25,39 +26,39 @@ public class Echequier {
 					couleur = " ";
 				else
 					couleur = "blanc";
-				
-				if(i == 1 || i == 6 )
-					this.grille[i][j].setPiece(new Pion(couleur));
-		
+								
 				if(i == 0 || i == 7){
-					this.grille[i][0].setPiece(new Pion(couleur));
+					this.grille[i][0].setPiece(new Tour(couleur));
 					this.grille[i][1].setPiece(new Cavalier(couleur));
 					this.grille[i][2].setPiece(new Fou(couleur));
 					this.grille[i][3].setPiece(new Reine(couleur));
 					this.grille[i][4].setPiece(new Roi(couleur));
 					this.grille[i][5].setPiece(new Fou(couleur));	
 					this.grille[i][6].setPiece(new Cavalier(couleur));
-					this.grille[i][7].setPiece(new Pion(couleur));
+					this.grille[i][7].setPiece(new Tour(couleur));
 				}
+				
+				if(i == 1 || i == 6 )
+					this.grille[i][j].setPiece(new Pion(couleur));
 			}
 		}
 	}
 	
 	public void afficher_grille(){
 		int k =1;
-		System.out.println("   A   B   C   D   E   F   G   H");
-		System.out.println("  ---------------------------------");		
+		System.out.println("     A     B    C    D     E    F    G    H");
+		System.out.println("  --------------------------------------------");		
 		for(int i = 0; i < 8; i++ ){
 			System.out.print(k);
 			for(int j = 0; j < 8 ; j++){
 				if(grille[i][j].getPiece() != null )
-					System.out.print(" | " + (this.grille[i][j].getPiece().getNom()));
+					System.out.print("  |  " + (this.grille[i][j].getPiece().getNom()));
 				else
-					System.out.print(" |  ");
+					System.out.print("  |  ");
 			}
 			
-			System.out.println( " | ");
-			System.out.println("  --------------------------------");
+			System.out.println( "   |  ");
+			System.out.println("  --------------------------------------------");
 		k++;
 		}
 		
@@ -119,5 +120,12 @@ public class Echequier {
 		}
 		return false;
 	}
+
+	public Case getCase(int i, int j) {
+		return grille[i][j];
+	
+	}
+
+
 	
 }

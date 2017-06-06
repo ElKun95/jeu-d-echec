@@ -1,6 +1,6 @@
 package Echec;
 
-public class Position {
+public class Position{
 	protected int ligne;
 	protected int colonne;
 	

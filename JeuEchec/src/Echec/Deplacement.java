@@ -1,6 +1,7 @@
 package Echec;
 
-public class Deplacement {
+
+public class Deplacement{
 	protected int deplX;
 	protected int deplY;
 	protected Position arrive;

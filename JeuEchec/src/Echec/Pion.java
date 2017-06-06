@@ -1,16 +1,17 @@
+package Echec;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("f053f634-0d8b-4a1f-b597-aaea20c94652")
-public class Pion extends Piece {
+public class Pion extends Piece{
 	protected int nbDepl;
 	
 	public Pion(String couleur){
 		super(couleur);
 		if(couleur.equals("noir"))
-			this.nom="\u265F ";
+			this.nom="\u265F";
 		else
-			this.nom="\u2659 ";	
+			this.nom="\u2659";	
 	}
 	public int getnbDepl(){
 		return nbDepl;
