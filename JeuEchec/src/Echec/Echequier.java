@@ -37,9 +37,10 @@ public class Echequier{
 					this.grille[i][6].setPiece(new Cavalier(couleur));
 					this.grille[i][7].setPiece(new Tour(couleur));
 				}
-				
-				if(i == 1 || i == 6 )
+				else if(i == 1 || i == 6 )
 					this.grille[i][j].setPiece(new Pion(couleur));
+				else
+					this.grille[i][j].setPiece(null);
 			}
 		}
 	}

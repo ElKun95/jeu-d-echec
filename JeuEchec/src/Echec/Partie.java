@@ -3,7 +3,7 @@ package Echec;
 import java.io.*;
 import java.util.*;
 public class Partie{
-	
+
 	private ArrayList<Deplacement>  SavePos = new ArrayList<Deplacement>();
 	private Echequier g1;
 	private Joueur joueur[] = new Joueur[2];
@@ -70,7 +70,6 @@ public class Partie{
 			}
 			else
 				System.out.println("Ce n'est pas a votre tour de jouer !");
-			
 			g1.afficher_grille();
 			SavePos.add(depl);
 			System.out.println("sauvegarde ?");
@@ -125,7 +124,7 @@ public class Partie{
 		
 			while(s != null && !(s.equals("Blanc") || s.equals("Noir"))){
 			
-				int ligneDepart = Integer.parseInt(s.substring(0, 1)); // recupere un caractere et le transformer en int
+				int ligneDepart = Integer.parseInt(s.substring(0, 1));
 				int colonneDepart = Integer.parseInt(s.substring(1,2));
 				int ligneArrivee = Integer.parseInt(s.substring(3, 4));
 				int colonneArrivee = Integer.parseInt(s.substring(4,5));
