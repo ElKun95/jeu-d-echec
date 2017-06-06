@@ -40,8 +40,16 @@ public class Partie{
 		Position arriver;
 		Scanner input = new Scanner(System.in);
 		
-		g1.afficher_grille();
-		
+		System.out.println("Voulez vous charger une partie ?");
+		String charge = input.next();
+		if(charge.equals("oui")){
+			System.out.println("Quelle partie voulez voue chargez ?");
+			String nomcharge = input.next();
+			charger(nomcharge);
+		}
+		else
+			g1.afficher_grille();
+	
 		while(fini_jeu == false){
 			
 			System.out.println(" Saisir le depart (ligne puis colonne)");
@@ -70,31 +78,32 @@ public class Partie{
 			}
 			else
 				System.out.println("Ce n'est pas a votre tour de jouer !");
+			
 			g1.afficher_grille();
 			SavePos.add(depl);
-			System.out.println("sauvegarde ?");
 			
+			System.out.println(" Voulez vous sauvegarde ?");
 			String sauve = input.next();
-			if(sauve.equals("oui"))
-				sauvegarde();
-			else if(sauve.equals("charger"))
-				charger();
-			
+			if(sauve.equals("oui")){
+				System.out.println("Quelle sera le nom de la partie ?");
+				String str = input.next();
+				sauvegarde(str);
+			}	
 			g1.afficher_grille();
 		}
 
 	}
 	
-	public boolean sauvegarde(){
+	public boolean sauvegarde(String nomsauve){
 	    try{
-		    File file = new File("sauvegarde.txt"); 
+		    File file = new File(nomsauve + ".txt"); 
 		    FileWriter fw;
 	    	ListIterator<Deplacement> ite = SavePos.listIterator(); 
     		fw = new FileWriter(file);   
     		
     		while(ite.hasNext()){
     			Deplacement depl = ite.next();
-	    		fw.write(depl.getDepart().getLigne()+""+ depl.getDepart().getColonne() 
+	    		fw.write(depl.getDepart().getLigne()+""+ depl.getDepart().getColonne() // ecris en String
 	    				+ " " 
 	    				+ depl.getArrive().getLigne()+""+ depl.getArrive().getColonne()
 	    				+ '\n');
@@ -114,17 +123,17 @@ public class Partie{
 
 	}
 	
-	public boolean charger(){
+	public boolean charger(String nomcharge){
 		try{
 			intialise();
-			File file = new File("sauvegarde.txt");
+			File file = new File(nomcharge + ".txt");
 			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
-			String s = br.readLine();
+			BufferedReader br = new BufferedReader(fr); // Extension de filereader mais plus elle lit les fichiers ligne par ligne 
+			String s = br.readLine(); // recupere la ligne
 		
 			while(s != null && !(s.equals("blanc") || s.equals("noir"))){
 			
-				int ligneDepart = Integer.parseInt(s.substring(0, 1)); // Convertir une chaine de caractére en String
+				int ligneDepart = Integer.parseInt(s.substring(0, 1)); // Convertir une chaine de caractére en int ; Substring recupere la position ecrite dans le fichier
 				int colonneDepart = Integer.parseInt(s.substring(1,2));
 				int ligneArrivee = Integer.parseInt(s.substring(3, 4));
 				int colonneArrivee = Integer.parseInt(s.substring(4,5));
