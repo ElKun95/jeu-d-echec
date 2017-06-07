@@ -107,11 +107,9 @@ public class Partie{
 	    				+ " " 
 	    				+ depl.getArrive().getLigne()+""+ depl.getArrive().getColonne()
 	    				+ '\n');
-	   
-	    	}
+    		}
     		
-    		
-	    	fw.write(JoueurActuel.getCouleur());  
+    		fw.write(JoueurActuel.getCouleur());  
 	    	
     		fw.close(); 
 	    	return true;

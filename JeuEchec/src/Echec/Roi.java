@@ -18,6 +18,7 @@ public class Roi extends Piece{
 				Math.abs(depl.getDeplY()) == 1 && Math.abs(depl.getDeplX()) == 0 || 
 				Math.abs(depl.getDeplX() - depl.getDeplY() ) == 0 && !depl.DeplacementNull();
 	}
+
 	
 	 
 }

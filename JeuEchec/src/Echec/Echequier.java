@@ -1,5 +1,7 @@
 package Echec;
 
+import java.util.ArrayList;
+
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("d8847c5e-41a3-4189-8f64-e0144452e752")
@@ -65,19 +67,19 @@ public class Echequier{
 		
 	}
 	
-	// Methode permettant de verifier si le chemin entre le depart et l'arrive il n'y a pas de piece entre les 2
+	// Methode permettant de verifier si le chemin entre le depart et l'arrive est possible, c'est a dire il n'y a pas de piece entre les 2
 	public boolean cheminValide(Deplacement depl){
 		Piece departPiece = this.grille[depl.getDepart().getLigne()][ depl.getDepart().getColonne()].getPiece();
-		int deplX = 0;
-		int deplY = 0;
+		int deplX = 0;  // Pour verifier si on se deplace en ligne et si c 1 ou -1
+		int deplY = 0; 
 		
 		if(depl.getDeplX() != 0)
 			deplX = depl.getDeplX()/Math.abs(depl.getDeplX());
 		if(depl.getDeplY() != 0)
 			deplY = depl.getDeplY()/Math.abs(depl.deplY);
 	
-		if(!(departPiece instanceof Cavalier)){
-			if(!(departPiece instanceof Pion) || (departPiece instanceof Pion && ((Pion)departPiece).getnbDepl() == 0)){
+		if(!(departPiece instanceof Cavalier)){ // la piece de depart n'est pas cavalier
+			if(!(departPiece instanceof Pion) || (departPiece instanceof Pion && ((Pion)departPiece).getnbDepl() == 0)){ // La piece de depart n'est pas un pion
 				for(int i = depl.getDepart().getLigne() + deplX , j = depl.getDepart().getColonne() + deplY ; i != depl.getArrive().getLigne() ; i+= deplX, j+=deplY){
 					if(!(this.grille[i][j].caseLibre()))
 						return false;
@@ -126,7 +128,6 @@ public class Echequier{
 		return grille[i][j];
 	
 	}
-
 
 	
 }
