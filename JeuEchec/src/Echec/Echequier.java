@@ -70,7 +70,7 @@ public class Echequier{
 	// Methode permettant de verifier si le chemin entre le depart et l'arrive est possible, c'est a dire il n'y a pas de piece entre les 2
 	public boolean cheminValide(Deplacement depl){
 		Piece departPiece = this.grille[depl.getDepart().getLigne()][ depl.getDepart().getColonne()].getPiece();
-		int deplX = 0;  // Pour verifier si on se deplace en ligne et si c 1 ou -1
+		int deplX = 0;  // deplacement en 1 ou -1 ou 0
 		int deplY = 0; 
 		
 		if(depl.getDeplX() != 0)
@@ -78,8 +78,8 @@ public class Echequier{
 		if(depl.getDeplY() != 0)
 			deplY = depl.getDeplY()/Math.abs(depl.deplY);
 	
-		if(!(departPiece instanceof Cavalier)){ // la piece de depart n'est pas cavalier
-			if(!(departPiece instanceof Pion) || (departPiece instanceof Pion && ((Pion)departPiece).getnbDepl() == 0)){ // La piece de depart n'est pas un pion
+		if(!(departPiece instanceof Cavalier)){ 
+			if(!(departPiece instanceof Pion) || (departPiece instanceof Pion && ((Pion)departPiece).getnbDepl() == 0)){ 
 				for(int i = depl.getDepart().getLigne() + deplX , j = depl.getDepart().getColonne() + deplY ; i != depl.getArrive().getLigne() ; i+= deplX, j+=deplY){
 					if(!(this.grille[i][j].caseLibre()))
 						return false;
